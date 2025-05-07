@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       background-color: black;
-      color: goldenrod;
+      color: gold;
       text-align: center;
       overflow: hidden;
     }
@@ -23,13 +23,13 @@
       width: 100%;
       height: 100%;
       background: url('https://s6.uupload.ir/filelink/oyVY6cwgAe0d_8b9c5ac4bf/assets_task_01jtmfg6m7ft8ang69ym775rha_1746591621_img_3_29br.webp') center center/cover no-repeat;
-      filter: blur(8px);
+      filter: blur(6px) brightness(0.6);
       z-index: -1;
     }
 
     .content {
       position: relative;
-      padding: 30px 20px;
+      padding: 20px 15px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -37,20 +37,24 @@
     }
 
     .heading {
-      font-size: 2.5em;
+      font-size: 2.8em;
       font-weight: bold;
       margin-top: 30px;
+      text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
     }
 
     .counter {
-      font-size: 1.8em;
+      font-size: 2.2em;
       font-weight: bold;
-      margin: 20px 0;
+      margin: 25px 0;
+      text-shadow: 0 0 5px #FFD700;
     }
 
     .subheading {
-      font-size: 1.2em;
-      margin: 20px 0;
+      font-size: 1.4em;
+      margin: 25px 0;
+      line-height: 1.8;
+      text-shadow: 0 0 5px #FFD700;
     }
 
     .input-container {
@@ -58,22 +62,38 @@
     }
 
     input {
-      font-size: 1.5em;
+      font-size: 1.6em;
       padding: 10px;
-      width: 80%;
-      max-width: 300px;
-      background-color: transparent;
-      border: 2px solid goldenrod;
-      color: goldenrod;
+      width: 70%;
+      max-width: 250px;
+      background-color: rgba(255, 215, 0, 0.1);
+      border: 2px solid gold;
+      color: gold;
       text-align: center;
-      border-radius: 5px;
-    }
-
-    .footer {
-      font-size: 1.3em;
+      border-radius: 7px;
       margin-bottom: 20px;
     }
 
+    button {
+      font-size: 1.3em;
+      padding: 10px 30px;
+      background-color: gold;
+      border: none;
+      color: black;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffcc00;
+    }
+
+    .footer {
+      font-size: 1.4em;
+      margin: 30px 0 10px;
+      text-shadow: 0 0 5px #FFD700;
+    }
   </style>
 </head>
 <body>
@@ -84,25 +104,26 @@
   <div>
     <div class="heading">نذر ظهور منتقم</div>
     <div class="counter" id="counter">آمار کل صلوات ها: 0</div>
-    <div class="subheading">سهم من از نذر صلوات ظهور منتقم اباعبدالله الحسین علیه السلام</div>
+    <div class="subheading">سهم من از نذر صلوات ظهور منتقم اباعبدالله الحسین علیه‌السلام</div>
     <div class="input-container">
-      <input type="number" id="salawatInput" placeholder="تعداد صلوات" oninput="updateCounter()">
+      <input type="number" id="salawatInput" placeholder="تعداد صلوات">
+      <br>
+      <button onclick="addSalawat()">ثبت</button>
     </div>
   </div>
-  <div class="footer">موکب فرهنگی ابنا الزهرا سلام الله علیها</div>
+  <div class="footer">موکب فرهنگی ابنا الزهرا سلام‌الله‌علیها</div>
 </div>
 
 <script>
   let totalSalawat = 0;
 
-  function updateCounter() {
+  function addSalawat() {
     const inputValue = document.getElementById('salawatInput').value;
     if (inputValue) {
-      totalSalawat = parseInt(inputValue);
-    } else {
-      totalSalawat = 0;
+      totalSalawat += parseInt(inputValue);
+      document.getElementById('counter').innerText = `آمار کل صلوات ها: ${totalSalawat}`;
+      document.getElementById('salawatInput').value = '';
     }
-    document.getElementById('counter').innerText = `آمار کل صلوات ها: ${totalSalawat}`;
   }
 </script>
 
